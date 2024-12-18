@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разработка веб-приложений</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="box.png" width="50" height="50" />
+            <div class="logo">Logo</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="page1.html">Главная</a></li>
+                <li><a href="page3.html">Первый семестр</a></li>
+                <li><a href="page4.html">Второй семестр</a></li>
+                <li><a href="page2.html">Услуги</a></li>
+                <li><a href="#">Авторизация</a></li>
+            </ul>
+        </nav>
+        <div class="user-info">
+            <p>Группа: ЭФБО-02-23</p>
+            <p>Родимцев Роман Анатольевич</p>
+        </div>
+    </header>
+
+    <div class="content">
+        <aside>
+            <b>Навигация по странице</b>
+            <a href="#">Фронтенд</a>
+            <a href="#">Бэкенд</a>
+        </aside>
+
+        <main>
+            <h1>Разработка веб-приложений</h1>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="image-placeholder"><img src="1.webp" alt="kira1" width=100% height="150"></div>
+                    <a>Сайт-визитка</a>
+                    <button class="service-btn" data-service="Сайт-визитка">Заказать</button>
+                </div>
+                <div class="project-card">
+                    <div class="image-placeholder"><img src="2.webp" alt="kira2" width=100% height="150"></div>
+                    <a>Корпоративный сайт</a>
+                    <button class="service-btn" data-service="Корпоративный сайт">Заказать</button>
+                </div>
+                <div class="project-card">
+                    <div class="image-placeholder"><img src="3.webp" alt="kira3" width=100% height="150"></div>
+                    <a>Интернет-магазин</a>
+                    <button class="service-btn" data-service="Интернет-магазин">Заказать</button>
+                </div>
+            </div>
+            <p class="description">Меня зовут Кира Йошикагэ. Мне 33 года. Мой дом находится в северо-восточной части Морио, в районе поместий. Работаю в офисе сети магазинов Kame Yu и домой возвращаюсь, самое позднее, в восемь вечера. Не курю, выпиваю изредка. Ложусь спать в 11 вечера и убеждаюсь, что получаю ровно восемь часов сна, несмотря ни на что. Перед сном я пью тёплое молоко, а также минут двадцать уделяю разминке, поэтому до утра сплю без особых проблем. Утром я просыпаюсь, не чувствуя ни усталости, ни стресса, словно младенец. На медосмотре мне сказали, что никаких проблем нет. Я пытаюсь донести, что я обычный человек, который хочет жить спокойной жизнью. Я не забиваю себе голову проблемами вроде побед или поражений, и не обзавожусь врагами, из-за которых не мог бы уснуть. Я знаю наверняка: в таком способе взаимодействия с обществом и кроется счастье. Хотя, если бы мне пришлось сражаться, я бы никому не проиграл.</p>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; Родимцев Роман Анатольевич, 2024</p>
+    </footer>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="contactForm">
+                <div id="pr">
+                <label for="name">Имя: </label>
+                <input type="text" id="name" name="name" required>
+                
+
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+                
+
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+
+                <label for="country">Страна:</label>
+                <select id="country" name="country" required>
+                    <option value="Россия">Россия</option>
+                    <option value="США">США</option>
+                    <option value="Канада">Канада</option>
+                </select>
+
+                <label for="date">Выбор даты:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="comments">Комментарии:</label>
+                <textarea id="comments" name="comments"></textarea>
+                </div>
+
+                <input type="hidden" id="serviceType" name="serviceType">
+
+                <button type="submit">Отправить</button>
+            </form>
+            <div id="successMessage" style="display:none;">Форма успешно отправлена!</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

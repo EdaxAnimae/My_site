@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html lang="ru"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Пример</title> 
+</head> 
+<body> 
+ 
+  <h1>Заголовок 1</h1> 
+  <h2>Заголовок 2</h2> 
+  <p>Фронтенд (или клиентская часть) - это то, что видит пользователь. Он 
+    включает в себя все визуальные элементы веб-сайта или приложения: 
+    кнопки, формы, изображения и текст. Фронтенд разработчики используют 
+    языки разметки и стилизации, такие как HTML, CSS и JavaScript, чтобы 
+    создавать интерактивные и привлекательные интерфейсы. Основная задача 
+    фронтенда - обеспечить удобство использования и эстетическую 
+    привлекательность.</p> 
+  <video controls> 
+    <source src="video.mp4" type="video/mp4"> 
+    Ваш браузер не поддерживает видео. 
+  </video> 
+ 
+  <form id="form"> 
+    <label for="name">Имя:</label> 
+    <input type="text" id="name" required><br> 
+    <label for="email">E-mail:</label> 
+    <input type="email" id="email" required><br> 
+    <label for="phone">Телефон:</label> 
+    <input type="text" id="phone"><br> 
+    <label for="date">Дата:</label> 
+    <input type="date" id="date"><br> 
+    <label for="comment">Комментарий:</label> 
+    <textarea id="comment" required></textarea><br> 
+    <button type="submit">Отправить</button> 
+  </form> 
+ 
+  <script> 
+    document.addEventListener('DOMContentLoaded', function() { 
+      // Часть 1: Работа с DOM 
+      document.querySelector('h1').textContent = 'Добро пожаловать на наш сайт!'; 
+      document.querySelector('h2').style.color = 'red'; 
+      document.querySelector('p').textContent = 'Это новый текст параграфа.'; 
+      document.querySelector('video').style.display = 'none'; 
+ 
+      // Часть 2: Работа с объектами 
+      let formData = { 
+        name: '', 
+        email: '', 
+        phone: '', 
+        date: '', 
+        comment: '' 
+      }; 
+ 
+      function submitForm(event) { 
+        event.preventDefault(); 
+ 
+        formData.name = document.querySelector('#name').value; 
+        formData.email = document.querySelector('#email').value; 
+        formData.phone = document.querySelector('#phone').value; 
+        formData.date = document.querySelector('#date').value; 
+        formData.comment = document.querySelector('#comment').value; 
+ 
+        if (validateForm()) { 
+          formData.printData(); 
+        } 
+      } 
+ 
+      function validateForm() { 
+        if (!formData.name || !formData.date || !formData.email || !formData.phone || !formData.comment) { 
+          alert('Заполните все обязательные поля.'); 
+          return false; 
+        } 
+ 
+        const phoneRegex = /^[0-9]+$/; 
+        if (!phoneRegex.test(formData.phone)) { 
+          alert('Поле "Телефон" должно содержать только цифры.'); 
+          return false; 
+        } 
+ 
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/; 
+        if (!emailRegex.test(formData.email)) { 
+          alert('Неверный формат email.'); 
+          return false; 
+        } 
+ 
+        return true; 
+      } 
+ 
+      formData.printData = function() { 
+        console.log(`Имя: ${this.name}`); 
+        console.log(`E-mail: ${this.email}`); 
+        console.log(`Телефон: ${this.phone}`); 
+        console.log(`Дата: ${this.date}`); 
+        console.log(`Комментарий: ${this.comment}`); 
+      }; 
+ 
+      document.querySelector('#form').addEventListener('submit', submitForm); 
+    }); 
+  </script> 
+ 
+</body> 
+</html>
